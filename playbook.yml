@@ -1,0 +1,16 @@
+---
+ -  hosts: big_ips
+    tasks:
+    - name: Update an existing internal data group of strings
+      bigip_data_group:
+        name: foo
+        internal: yes
+        records:
+          - key: caddy
+            value: ""
+          - key: cafeteria
+            value: ""
+          - key: cactus
+            value: ""
+        provider: "{{ bigip_provider }}"
+      delegate_to: localhost
